@@ -2,6 +2,10 @@
 
 This repository contains the code, analysis, and report on a project to identify the highest profit yielding pricing strategy for a new Ride Hailing Serivce, given some data from a similar service in the area.
 
+#### Language: Python, Jupyter Notebook
+#### Packages: SciPy, Pandas, NumPy, MatPlotLib
+#### Tags: Logistic Regression, Simulation, EDA, Business Problem, Data Analysis
+
 
 ## Problem:
 
