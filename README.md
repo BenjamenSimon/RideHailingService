@@ -5,19 +5,19 @@ This repository contains the code, analysis, and report on a project to identify
 
 ## Problem:
 
-A new ride hailing service is being launched that connects riders with drivers for trips between the Airport and Downtown. It’ll be active for only 12 months. The riders are charged a fixed rate of \\$30 per ride, and I have been tasked to propose a pricing strategy to maximise the profit of the business over the 12 months, given some contraints and assumptions. This document will present my strategy, as well as the thought process and data derived results behind it.
+A new ride hailing service is being launched that connects riders with drivers for trips between the Airport and Downtown. It’ll be active for only 12 months. The riders are charged a fixed rate of $30 per ride, and I have been tasked to propose a pricing strategy to maximise the profit of the business over the 12 months, given some contraints and assumptions. This document will present my strategy, as well as the thought process and data derived results behind it.
 
 
-## Bottom Line Up Front: The best strategy
+## Bottom Line Up Front: The Best Strategy
 
-Given the contraints, assumptions, and data given by the client, the optimal pricing strategy is to pay a fixed rate of \\$25.75 per ride, resulting in a profit of \\$4.25 per ride assuming no other costs, and a total average profit across the 12 months of \\$50,994.39, with a 95% confidence interval of (\\$48,452.82, \\$52,770.18).
+Given the contraints, assumptions, and data given by the client, the optimal pricing strategy is to pay a fixed rate of $25.75 per ride, resulting in a profit of $4.25 per ride assuming no other costs, and a total average profit across the 12 months of $50,994.39, with a 95% confidence interval of ($48,452.82, $52,770.18).
 
 
 ## Methods:
 
 ### The Model: Assumptions and Constraints
 
-For each event the ride-hailing system connects one rider request with one driver. The rider is charged a flat \\$30, and the driver can be payed any amount, P. The profit per ride is calculated as (\\$30 - P).
+For each event the ride-hailing system connects one rider request with one driver. The rider is charged a flat $30, and the driver can be payed any amount, P. The profit per ride is calculated as ($30 - P).
 
 The riders:
 - There are a total of 10,000 riders in the city.
@@ -64,6 +64,6 @@ As in the adaptive rate, we consider the relationship between the number of acti
 
 ## Results:
 
-We can evidently see that the optimal strategy for maximising the profit of this service under these assumptions is to have a fixed rate price in the region of \\$24 - \\$26, and further simulations could identify a global maxima to two deicimal places. Even the special cases with more freedom to adapt the rate were both optomised by the same fixed rate across the whole period. There are other more complex adaptations of course, such as a bait and switch rate that changed every month, or an adaptive rate that adapted more intelligently or more actively, ie. focusing on those with high request rates. However, I would theorise that given the evidence we have seen so far, and the relationships present in the data, that these would also be optimised by the same fixed rate.
+We can evidently see that the optimal strategy for maximising the profit of this service under these assumptions is to have a fixed rate price in the region of $24 - $26, and further simulations could identify a global maxima to two deicimal places. Even the special cases with more freedom to adapt the rate were both optomised by the same fixed rate across the whole period. There are other more complex adaptations of course, such as a bait and switch rate that changed every month, or an adaptive rate that adapted more intelligently or more actively, ie. focusing on those with high request rates. However, I would theorise that given the evidence we have seen so far, and the relationships present in the data, that these would also be optimised by the same fixed rate.
 
 Once the system is in place and more data has been collected, further analysis could offer improved strategies. For instance the probability of a price point being accepted may vary depending on time of day, weekday vs. weekend effects, holidays, end of month, weather, or person to person. Likewise some of the assumptions of the model, such as the highly varying rate of requests month to month, may prove to be invalid.
