@@ -61,6 +61,24 @@ This model works by attempting to maximise the number of riders who remain activ
 
 As in the adaptive rate, we consider the relationship between the number of active riders and the rate of pay/acceptance rate. As previously noted some riders will naturally leave the service because they make no requests in a month, the likelihood of this is increased the lower the rate of requests for an individual, and the rate of requests of an individual is related to the number of accepted requests of the previous month. Thus this strategy focuses on maximising the rate of requests of users for a period using a low proft/loss pay rate, to keep as many users active as possible, and then switching to a high profit rate. Unfortunately a high rate of requests could take months to build up, and then if the high profit pay rate leads to low accetances, the high request rate will disappear.
 
+### The Data
+
+Data was provided from a similar service on 1,000 rides, including their pay and whether or not they were accepted. 527 were accepted and 473 were rejected. The mean pay for all rides was $25.71, with the mean pay for accepted rides being $32.08 ($5.40 min, $53.67 max), and the mean pay for rejected rides being $18.62 ($0.00 min, $43.15 max). There is a clear sigmoid relationship between the pay and the acceptance rate, and the two groups aren't seperable, the majority of pay values in the middle resulted in some accepted rides and some rejected rides. 
+
+### Logistic Regression Model
+
+I am interested in using this data to inform simulations of the process and dictate whether a proposed ride and pay is accepted or rejected. To do this I need an estimate of the probability of acceptance for each pay value. For this, it thus seems appropriate to use a logistic regression model fit to the data to estimate the probability of acceptance, rather than used in its usual function as a categoriser. The fitted logistic regression model demonstrates the same relationship as we saw in the data, however it is worth noting some caveats. For instance we noted that there were no acceptances below $5.40. The sample size was not incredibly large but it is reasonable to assume that drivers will not take a job that is below a certain threshold, and would never do a job for free, where as this model predicts the acceptance of jobs at a $0.00 pay rate is 0.18%. We also saw similar behaviour at the other extreme. For this reason I believe the model should only be trusted for the interpolated bounds, for instance between $5.00 and $50.00. 
+
+### The Simulation Algorithm
+
+Using the probabilities from the logistic regression model I can now build a simulation of each strategy, the results of which can be investigated to identify the optimal parameters of each strategy and the overall best strategy. The general algorothm is as follows, with the stratgy specific changes occuring in step 3.
+
+For each month:
+1. Activate up to 1,000 new riders, ensuring the new total riders activated to date is 10,000 or less.
+2. For all active riders, generate the number of ride requests that month given their personal rate.
+3. For each ride request, choose a pay, and generate the accepted status given the output of the logistic model.
+4. Deactivate any riders that did not have any accepted rides this month.
+
 
 ## Results:
 
